@@ -9,7 +9,9 @@ const useGetConversations = () => {
 		const getConversations = async () => {
 			setLoading(true);
 			try {
-				const res = await fetch("/api/users");
+				const res = await fetch("https://chat-app-backend-isna.onrender.com/api/users", {
+					credentials: 'include'
+				});
 				const data = await res.json();
 				if (data.error) {
 					throw new Error(data.error);
